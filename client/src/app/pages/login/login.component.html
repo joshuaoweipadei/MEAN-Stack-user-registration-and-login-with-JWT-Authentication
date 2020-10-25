@@ -1,0 +1,26 @@
+<div class="register">
+  <div class="register__container">
+    <div class="register__wrapper">
+      <form class="register__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h2>Welcome back, Login</h2>
+
+        <label for="email">Email Address</label>
+        <input type="text" formControlName="email" id="email">
+        <div *ngIf="isSubmitted && f.email.errors" class="is__error">
+          <small *ngIf="f.email.errors?.required">Email is required</small>
+          <small *ngIf="f.email.errors?.pattern">Invalid email address</small>
+        </div>
+
+        <label for="password">Password</label>
+        <input type="text" formControlName="password" id="password">
+        <div *ngIf="isSubmitted && f.password.errors" class="is__error">
+          <small *ngIf="f.password.errors?.required">Password is required</small>
+        </div>
+
+        <button [disabled]="loading">Login</button>
+
+        <a routerLink="/register">Register</a>
+      </form>
+    </div>
+  </div>
+</div>

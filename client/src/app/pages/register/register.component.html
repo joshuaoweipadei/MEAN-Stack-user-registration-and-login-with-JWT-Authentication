@@ -1,0 +1,38 @@
+<div class="register">
+  <div class="register__container">
+    <div class="register__wrapper">
+      <form class="register__form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h2>Register</h2>
+        <label for="firstname">First Name</label>        
+        <input type="text" formControlName="firstname" id="firstname">
+        <div *ngIf="isSubmitted && f.firstname.errors" class="is__error">
+          <small *ngIf="f.firstname.errors?.required">First Name is required</small>
+        </div>
+
+        <label for="lastname">Last Name</label>
+        <input type="text" formControlName="lastname" id="lastname">
+        <div *ngIf="isSubmitted && f.lastname.errors" class="is__error">
+          <small *ngIf="f.lastname.errors?.required">Last Name is required</small>
+        </div>
+
+        <label for="email">Email Address</label>
+        <input type="text" formControlName="email" id="email">
+        <div *ngIf="isSubmitted && f.email.errors" class="is__error">
+          <small *ngIf="f.email.errors?.required">Email is required</small>
+          <small *ngIf="f.email.errors?.pattern">Invalid email address</small>
+        </div>
+
+        <label for="password">Password</label>
+        <input type="text" formControlName="password" id="password">
+        <div *ngIf="isSubmitted && f.password.errors" class="is__error">
+          <small *ngIf="f.password.errors?.required">Password is required</small>
+          <small *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</small>
+        </div>
+
+        <button [disabled]="loading">Register</button>
+
+        <a routerLink="/login">Login</a>
+      </form>
+    </div>
+  </div>
+</div>

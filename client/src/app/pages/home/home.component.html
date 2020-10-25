@@ -1,0 +1,29 @@
+<div class="home__container">
+  <div>
+    <h1>Hi {{currentUser.firstname}}!</h1>
+    <p>You're logged in with Angular 8!!</p>
+    <h3>All registered users:</h3>
+    <table *ngIf="users.length > 0">
+      <thead>
+        <tr>
+          <th width="8%">S/N</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{++i}}</td>
+          <td>{{user.firstname}}</td>
+          <td>{{user.lastname}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <button (click)="deleteUser(user.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<nav *ngIf="currentUser">
+  <div class="navbar">
+    <div class="nav__brand">
+      <h3>MINT</h3>
+    </div>
+    <ul class="nav__item">
+      <li class="nav__link" routerLink="/" >Home</li>
+      <li class="nav__link" (click)="logout()">Logout</li>
+    </ul>
+  </div>
+</nav>
+
+<div>
+  <app-alert></app-alert>
+  <router-outlet></router-outlet>
+</div>
